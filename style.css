@@ -142,6 +142,7 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 70px #1fbccb4d;
   position: relative;
+  font-size: calc(min(8vh, 6vw));
 }
 .win_display::after,
 .win_display::before {
@@ -190,8 +191,8 @@ body {
 .turn {
   display: block;
   position: absolute;
-  width: 100px;
-  height: 30px;
+  width: 15vw;
+  height: 5vh;
   text-align: center;
   align-content: center;
   border-radius: 20px;
@@ -200,6 +201,7 @@ body {
   background-color: #2ce61eea;
   bottom: 120%;
   animation: 2s updown ease infinite;
+  font-size: calc(min(2vh, 4vw));
 }
 
 @keyframes updown {
@@ -221,4 +223,62 @@ body {
   left: calc(50% - 5px);
   top: 85%;
   rotate: 45deg;
+  z-index: -1;
+}
+.player-1 {
+  left: 20px;
+}
+.player-2 {
+  right: 20px;
+}
+
+@media screen and (max-width: 550px) {
+  .reset {
+    top: 15px;
+    left: 15px;
+  }
+
+  .player-1 .turn {
+    right: 120%;
+    bottom: 35%;
+  }
+  .player-1 .turn > span {
+    left: calc(100% - 7px);
+    top: calc(50% - 5px);
+  }
+
+  .player-2 .turn {
+    left: 120%;
+    top: 35%;
+  }
+
+  .player-2 .turn > span {
+    left: -3px;
+    top: calc(50% - 5px);
+  }
+
+  @keyframes updown {
+    0% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 10px 0px;
+    }
+    100% {
+      translate: 0 0;
+    }
+  }
+
+  .player_box {
+    width: 25vw;
+    height: 15vh;
+  }
+  .player_box.player-1 {
+    top: 10vh;
+    left: calc(50vw - 12.5vw);
+  }
+  .player_box.player-2 {
+    top: 75vh;
+    left: calc(50vw - 12.5vw);
+  }
 }
